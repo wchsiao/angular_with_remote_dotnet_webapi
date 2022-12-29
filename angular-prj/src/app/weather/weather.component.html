@@ -1,0 +1,25 @@
+<p>weather works!</p>
+  
+  <ul class="heroes">
+    <li *ngFor="let weather of weathers">
+        <span class="badge">{{weather.date}}</span> 
+        {{weather.temperatureC}}
+        {{weather.temperatureF}}
+        {{weather.summary}}
+    </li>
+  </ul>
+
+  <table border="1">
+    <tr>
+        <td>Date</td>
+        <td>C</td>
+        <td>F</td>
+        <td>Summary</td>
+    </tr>
+    <tr *ngFor="let weather of weathers">
+        <td>{{weather.date}}</td>
+        <td>{{weather.temperatureC}}</td>
+        <td>{{weather.temperatureF}}</td>
+        <td>{{weather.summary}}</td>
+    </tr>
+  </table>
