@@ -21,7 +21,7 @@ export class WeatherService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
-  /** GET heroes from the server */
+  /** GET weathers from the server */
   getWeathers(): Observable<Weather[]> {
     return this.http.get<Weather[]>(this.weathersUrl)
       .pipe(
