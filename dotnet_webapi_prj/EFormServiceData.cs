@@ -30,7 +30,7 @@ public class EFormServiceData
                     $"SELECT MIN([MasterLogId]) as [MasterLogId] " +
                     $", CAST([CreatedDate] as date) as [CreatedDate] " +
                     $"FROM [Eforms].[dbo].[Eforms_MasterLog] " +
-                    $"where CreatedDate >= CAST(GETDATE() -7 as date) " +
+                    $"where CreatedDate >= CAST(GETDATE() as date) " +
                     $"group by CAST([CreatedDate] as date) " +
                     $"order by [CreatedDate] desc";
 
