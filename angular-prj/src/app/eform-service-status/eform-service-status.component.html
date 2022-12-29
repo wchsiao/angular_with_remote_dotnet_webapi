@@ -1,0 +1,17 @@
+<p>eform-service-status works!</p>
+<table>
+    <thead>
+        <tr>
+            <td>Server</td>
+            <td>Success</td>
+            <td>Failed</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let es of eformServiceStatus">
+            <td>{{es.server}}</td>
+            <td>{{es.success}}</td>
+            <td>{{es.failed}}</td>
+        </tr>
+    </tbody>
+</table>
