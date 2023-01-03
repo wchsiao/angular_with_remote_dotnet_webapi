@@ -26,7 +26,7 @@ export class EFormServiceStatusService {
   getEFormServiceStatus(): Observable<EFormServiceStatus[]> {
     return this.http.get<EFormServiceStatus[]>(this.webapiUrl)
       .pipe(
-        tap(_ => this.log('fetched EFormServiceStatus')),
+        //tap(_ => this.log('fetched EFormServiceStatus')),
         catchError(this.handleError<EFormServiceStatus[]>('getEFormServiceStatus', []))
       );
   }
