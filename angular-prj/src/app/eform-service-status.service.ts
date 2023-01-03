@@ -12,7 +12,7 @@ import { MessageService } from './message.service';
 })
 export class EFormServiceStatusService {
 
-  private webapiUrl = 'http://localhost:5007/EFormServiceEnvStatus';
+  private webapiUrl = 'http://localhost:5276/EFormServiceEnvStatus';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

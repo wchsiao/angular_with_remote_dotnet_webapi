@@ -1,5 +1,5 @@
 export interface EFormServiceStatus {
-  server: string;
+  serverName: string;
   success: number;
   failed: number;
 }

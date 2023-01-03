@@ -1,0 +1,2 @@
+cd dotnet_webapi_EFormService
+dotnet watch

@@ -12,7 +12,7 @@ import { MessageService } from './message.service';
 })
 export class PersonsService {
 
-  private webapiUrl = 'http://localhost:5007/Person';  // URL to web api
+  private webapiUrl = 'http://localhost:5294/Person';  // URL to web api
 
   httpOptions = {
     header: new HttpHeaders({ 'Content-Type': 'application/json'})

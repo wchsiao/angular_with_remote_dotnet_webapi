@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "PpnETVO2iXKA1HQBVhb0HDsw0SnQITNbEHLu/aCCbyE=",
+  "Source": "dotnet_webapi_EFormService",
+  "BasePath": "_content/dotnet_webapi_EFormService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
