@@ -23,6 +23,6 @@ public class PersonController : ControllerBase
     [HttpGet(Name = "Persons")]
     public IEnumerable<Person> Get()
     {
-        return TheData.GetPersons();
+        return PersonData.GetPersons();
     }
 }
