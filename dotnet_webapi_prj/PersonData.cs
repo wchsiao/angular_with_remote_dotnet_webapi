@@ -2,13 +2,13 @@ using Microsoft.Data.SqlClient;
 
 namespace dotnet_webapi;
 
-public class TheData
+public class PersonData
 {
     private static SqlConnection GetConnection()
     {
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
-        builder.DataSource = @".\SQLEXPRESS";
+        builder.DataSource = @".\SQLEXPRESS_2016";
         builder.InitialCatalog = "WideWorldImporters";
         builder.IntegratedSecurity = true;
         builder.TrustServerCertificate = true;
