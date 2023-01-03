@@ -16,6 +16,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
 import { WeatherComponent } from './weather/weather.component';
 import { EFormServiceStatusComponent } from './eform-service-status/eform-service-status.component';
+import { PersonsComponent } from './persons/persons.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { EFormServiceStatusComponent } from './eform-service-status/eform-servic
     MessagesComponent,
     HeroSearchComponent,
     WeatherComponent,
-    EFormServiceStatusComponent
+    EFormServiceStatusComponent,
+    PersonsComponent
   ],
   bootstrap: [ AppComponent ]
 })
