@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
   { path: 'weather', component: WeatherComponent },
   { path: 'persons', component: PersonsComponent },
-  { path: 'eformservicestatus', component: EFormServiceStatusComponent }
+  { path: 'eformservicestatus', title: 'EFormService Status - Angular with Remote Dotnet WebApi', component: EFormServiceStatusComponent }
 ];
 
 @NgModule({
