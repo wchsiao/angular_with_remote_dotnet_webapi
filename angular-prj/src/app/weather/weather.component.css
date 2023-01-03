@@ -1,0 +1,21 @@
+.weather-list {
+    font-weight: normal;
+    font-size: medium;
+}
+
+.weather-list li {
+    display: block;
+    border: 1px solid black;
+}
+
+.weather-list li.sunny {
+    background-image: ;
+}
+
+.weather-list li.rain {
+    background-image: ;
+}
+
+.weather-list li.cloudy {
+    background-image: ;
+}
