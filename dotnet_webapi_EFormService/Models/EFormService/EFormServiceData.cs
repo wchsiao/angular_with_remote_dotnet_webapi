@@ -38,8 +38,6 @@ public class EFormServiceData
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        Console.WriteLine($"reader.HasRows = {reader.HasRows}");
-
                         while (reader.Read())
                         {
                             ss.Add(new EFormServiceLogDate
