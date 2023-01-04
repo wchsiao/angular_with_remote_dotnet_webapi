@@ -21,4 +21,20 @@ public class EFormServiceEnvStatusController : ControllerBase
     {
         return EFormServiceData.GetEFormServiceEnvStatuses();
     }
+
+    /*
+    [EnableCors("PolicyCors")]
+    [HttpGet(Name = "/GetLogDate")]
+    public DateTime GetLogDate()
+    {
+        return EFormServiceData.Date;
+    }
+
+    [EnableCors("PolicyCors")]
+    [HttpGet(Name = "/GetMasterLogIdMin")]
+    public int GetMasterLogIdMin()
+    {
+        return EFormServiceData.MasterLogId_Min;
+    }
+    */
 }
