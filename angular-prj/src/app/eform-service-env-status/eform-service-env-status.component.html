@@ -1,13 +1,12 @@
-<h2>EForm Service Status</h2>
-<p>
-    Data Time:
-    {{statusDate | date:'medium'}}
-</p>
-<p>
-    Status Date Time:
-    {{eformServiceEnvStatus.statusDateTime | date:'medium'}}
-</p>
+<h2>EForm Service Env Status</h2>
 <table class="eform-service-env-status-table">
+    <caption class="eform-service-env-status-time-panel">
+        Query Time:
+        {{statusDate | date:'mediumTime'}}
+        <br />
+        Result Time:
+        {{eformServiceEnvStatus.statusDateTime | date:'mediumTime'}}
+    </caption>
     <thead class="eform-service-env-status-table-head">
         <tr>
             <td class="eform-service-env-status-table-head">Server</td>
