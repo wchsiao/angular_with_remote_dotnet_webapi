@@ -2,7 +2,7 @@
 <table class="eform-service-env-status-table">
     <caption class="eform-service-env-status-time-panel">
         Query Time:
-        {{statusDate | date:'mediumTime'}}
+        {{queryTime | date:'mediumTime'}}
         <br />
         Result Time:
         {{eformServiceEnvStatus.statusDateTime | date:'mediumTime'}}
@@ -14,7 +14,7 @@
             <td class="eform-service-env-status-table-head">Failed</td>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="eform-service-env-status-table-body">
         <tr *ngFor="let es of eformServiceEnvStatus.eFormServiceStatusList">
             <td class="eform-service-env-status-table-servername">{{es.serverName}}</td>
             <td class="eform-service-env-status-table-count">{{es.success | number:'.0'}}</td>

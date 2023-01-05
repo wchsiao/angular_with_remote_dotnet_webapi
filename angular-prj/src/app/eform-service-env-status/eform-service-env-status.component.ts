@@ -13,12 +13,12 @@ import { EFormServiceEnvStatusService } from '../eform-service-env-status.servic
 
 export class EFormServiceEnvStatusComponent implements OnInit, OnDestroy {
   eformServiceEnvStatus: EFormServiceEnvStatus = <EFormServiceEnvStatus>{};
-  statusDate: Date = new Date();
+  queryTime: Date = new Date();
   successCount: number = 0;
   failedCount: number = 0;
 
   interval =  setInterval(() => {
-    this.statusDate = new Date();
+    this.queryTime = new Date();
     this.getEFormServiceEnvStatus();
   }, 2000);;
 
@@ -65,7 +65,7 @@ export class EFormServiceEnvStatusComponent implements OnInit, OnDestroy {
       //this.myDate = new Date();
       //console.log(this.myDate); // just testing if it is working
 
-      this.statusDate = new Date();
+      this.queryTime = new Date();
       this.getEFormServiceEnvStatus();
     }, 2000);
   }
