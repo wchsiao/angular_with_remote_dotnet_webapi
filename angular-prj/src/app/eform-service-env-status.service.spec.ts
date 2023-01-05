@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EFormServiceStatusService } from './eform-service-status.service';
+import { EFormServiceEnvStatusService } from './eform-service-env-status.service';
 
 describe('EFormServiceStatusService', () => {
-  let service: EFormServiceStatusService;
+  let service: EFormServiceEnvStatusService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(EFormServiceStatusService);
+    service = TestBed.inject(EFormServiceEnvStatusService);
   });
 
   it('should be created', () => {

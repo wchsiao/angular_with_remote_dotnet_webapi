@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EFormServiceStatusComponent } from './eform-service-status.component';
+import { EFormServiceEnvStatusComponent } from './eform-service-env-status.component';
 
 describe('EFormServiceStatusComponent', () => {
-  let component: EFormServiceStatusComponent;
-  let fixture: ComponentFixture<EFormServiceStatusComponent>;
+  let component: EFormServiceEnvStatusComponent;
+  let fixture: ComponentFixture<EFormServiceEnvStatusComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EFormServiceStatusComponent ]
+      declarations: [ EFormServiceEnvStatusComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EFormServiceStatusComponent);
+    fixture = TestBed.createComponent(EFormServiceEnvStatusComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

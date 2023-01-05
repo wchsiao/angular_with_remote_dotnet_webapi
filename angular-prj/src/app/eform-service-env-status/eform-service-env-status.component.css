@@ -1,38 +1,38 @@
-.eform-service-status-table
+.eform-service-env-status-table
 {
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-.eform-service-status-table * td
+.eform-service-env-status-table * td
 {
     padding: 2px 6px;
 }
 
-.eform-service-status-table-head
+.eform-service-env-status-table-head
 {
     border: 1px solid black;
     font-weight: bold;
 }
 
-.eform-service-status-table-body
+.eform-service-env-status-table-body
 {
     border: 1px solid black;
 }
 
-.eform-service-status-table-foot
+.eform-service-env-status-table-foot
 {
     border: 1px solid black;
     font-weight: bold;
 }
 
-.eform-service-status-table-servername
+.eform-service-env-status-table-servername
 {
     border: 1px solid black;
     text-align: left;
 }
 
-.eform-service-status-table-count
+.eform-service-env-status-table-count
 {
     border: 1px solid black;
     text-align: right;
