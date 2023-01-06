@@ -8,14 +8,6 @@
     border: 1px solid black;
 }
 
-.weather-list li.sunny {
-    background-image: ;
-}
-
-.weather-list li.rain {
-    background-image: ;
-}
-
-.weather-list li.cloudy {
-    background-image: ;
+body {
+    background-color: #aef;
 }

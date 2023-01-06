@@ -1,0 +1,160 @@
+{
+    "latitude": 40.78044,
+    "longitude": -73.78485,
+    "generationtime_ms": 1.6870498657226562,
+    "utc_offset_seconds": -18000,
+    "timezone": "America/New_York",
+    "timezone_abbreviation": "EST",
+    "elevation": 31.0,
+    "current_weather": {
+        "temperature": 45.4,
+        "windspeed": 5.6,
+        "winddirection": 50.0,
+        "weathercode": 3,
+        "time": "2023-01-05T21:00"
+    },
+    "daily_units": {
+        "time": "iso8601",
+        "weathercode": "wmo code",
+        "apparent_temperature_max": "°F",
+        "apparent_temperature_min": "°F",
+        "sunrise": "iso8601",
+        "sunset": "iso8601",
+        "precipitation_sum": "inch",
+        "rain_sum": "inch",
+        "showers_sum": "inch",
+        "snowfall_sum": "cm",
+        "precipitation_hours": "h",
+        "windspeed_10m_max": "mp/h",
+        "windgusts_10m_max": "mp/h",
+        "winddirection_10m_dominant": "°"
+    },
+    "daily": {
+        "time": [
+            "2023-01-05",
+            "2023-01-06",
+            "2023-01-07",
+            "2023-01-08",
+            "2023-01-09",
+            "2023-01-10",
+            "2023-01-11"
+        ],
+        "weathercode": [
+            51,
+            63,
+            71,
+            85,
+            71,
+            3,
+            3
+        ],
+        "apparent_temperature_max": [
+            45.8,
+            41.8,
+            35.4,
+            32.0,
+            37.6,
+            37.2,
+            36.3
+        ],
+        "apparent_temperature_min": [
+            40.4,
+            29.9,
+            26.2,
+            23.4,
+            28.3,
+            29.1,
+            19.1
+        ],
+        "sunrise": [
+            "2023-01-05T07:17",
+            "2023-01-06T07:17",
+            "2023-01-07T07:17",
+            "2023-01-08T07:17",
+            "2023-01-09T07:17",
+            "2023-01-10T07:17",
+            "2023-01-11T07:16"
+        ],
+        "sunset": [
+            "2023-01-05T16:43",
+            "2023-01-06T16:44",
+            "2023-01-07T16:45",
+            "2023-01-08T16:46",
+            "2023-01-09T16:47",
+            "2023-01-10T16:48",
+            "2023-01-11T16:49"
+        ],
+        "precipitation_sum": [
+            0.010,
+            0.490,
+            0.020,
+            0.040,
+            0.070,
+            0.000,
+            0.000
+        ],
+        "rain_sum": [
+            0.000,
+            0.120,
+            0.000,
+            0.000,
+            0.060,
+            0.000,
+            0.000
+        ],
+        "showers_sum": [
+            0.000,
+            0.040,
+            0.000,
+            0.000,
+            0.000,
+            0.000,
+            0.000
+        ],
+        "snowfall_sum": [
+            0.00,
+            0.00,
+            0.02,
+            0.31,
+            0.43,
+            0.00,
+            0.00
+        ],
+        "precipitation_hours": [
+            2.0,
+            11.0,
+            2.0,
+            5.0,
+            9.0,
+            0.0,
+            0.0
+        ],
+        "windspeed_10m_max": [
+            8.7,
+            7.8,
+            12.5,
+            11.4,
+            7.0,
+            9.1,
+            15.2
+        ],
+        "windgusts_10m_max": [
+            15.9,
+            18.3,
+            21.7,
+            19.5,
+            17.2,
+            18.6,
+            25.7
+        ],
+        "winddirection_10m_dominant": [
+            23,
+            330,
+            294,
+            275,
+            278,
+            254,
+            348
+        ]
+    }
+}
