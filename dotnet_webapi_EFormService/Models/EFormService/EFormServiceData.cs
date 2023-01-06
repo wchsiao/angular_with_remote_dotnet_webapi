@@ -25,14 +25,9 @@ public class EFormServiceData
         return new SqlConnection(builder.ConnectionString);
     }
 
-    public static EFormServiceEnvStatus GetEFormServiceEnvStatuses()
+    public static IEnumerable<EFormServiceStatus> GetEFormServiceEnvStatuses()
     {
-        var envStatus = new EFormServiceEnvStatus
-        {
-            StatusDateTime = DateTime.Now,
-            EFormServiceStatusList = new List<EFormServiceStatus>()
-        };
-
+        var ess = new List<EFormServiceStatus>();
         try
         {
             using (SqlConnection connection = GetConnection())
@@ -40,7 +35,9 @@ public class EFormServiceData
                 connection.Open();
 
                 String sql =
-                    $"SELECT [ServerName] " +
+                    $"SELECT " +
+                    $"  GETDATE() as [StatusDateTime] " +
+                    $"  ,[ServerName] " +
                     $"  ,sum(case when [ReqStatus] = 'success' then 1 else 0 end) as [success] " +
                     $"  ,sum(case when [ReqStatus] = 'success' then 0 else 1 end) as [failed] " +
                     $"FROM [Eforms].[dbo].[Eforms_MasterLog] WITH (NOLOCK) " +
@@ -59,21 +56,75 @@ public class EFormServiceData
                     {
                         while (reader.Read())
                         {
-                            envStatus.EFormServiceStatusList.Add(new EFormServiceStatus
+                            ess.Add(new EFormServiceStatus
                             {
-                                ServerName = reader.GetString(0),
-                                Success = reader.GetInt32(1),
-                                Failed = reader.GetInt32(2)
+                                StatusDateTime = reader.GetDateTime(0),
+                                ServerName = reader.GetString(1),
+                                Success = reader.GetInt32(2),
+                                Failed = reader.GetInt32(3)
                             });
                         }
                     }
                 }
-                return envStatus;
+                return ess;
             }
         }
         catch (SqlException)
         {
-            return envStatus;
+            return ess;
+        }
+    }
+
+    public static IEnumerable<EFormServiceRequestTypeStatus> GetEFormServiceRequestTypeStatus(string servername)
+    {
+        var ess = new List<EFormServiceRequestTypeStatus>();
+        try
+        {
+            using (SqlConnection connection = GetConnection())
+            {
+                connection.Open();
+
+                String sql =
+                    $"SELECT " + 
+                    $"  GETDATE() as [StatusDateTime] " +
+                    $"  ,[ServerName] " +
+                    $"  ,[RequestType] " +
+                    $"  ,sum(case when [ReqStatus] = 'success' then 1 else 0 end) as [success] " +
+                    $"  ,sum(case when [ReqStatus] = 'success' then 0 else 1 end) as [failed] " +
+                    $"FROM [Eforms].[dbo].[Eforms_MasterLog] WITH (NOLOCK) " +
+                    $"where " +
+                    $"  CreatedDate >= @CreatedDate " +
+                    $"  and " +
+                    $"  ServerName = @ServerName " +
+                    $"group by ServerName, RequestType " +
+                    $"order by ServerName, RequestType ";
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@CreatedDate", DateTime.Today);
+                    command.Parameters.AddWithValue("@ServerName", servername);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            ess.Add(new EFormServiceRequestTypeStatus
+                            {
+                                StatusDateTime = reader.GetDateTime(0),
+                                ServerName = reader.GetString(1),
+                                RequestType = reader.GetString(2),
+                                Success = reader.GetInt32(3),
+                                Failed = reader.GetInt32(4)
+                            });
+                        }
+                    }
+                }
+                return ess;
+            }
+        }
+        catch (SqlException)
+        {
+            return ess;
         }
     }
 }

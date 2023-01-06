@@ -6,18 +6,18 @@ namespace dotnet_webapi_EFormService.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class EFormServiceEnvStatusController : ControllerBase
+public class EFormServiceStatusController : ControllerBase
 {
-    private readonly ILogger<EFormServiceEnvStatusController> _logger;
+    private readonly ILogger<EFormServiceStatusController> _logger;
 
-    public EFormServiceEnvStatusController(ILogger<EFormServiceEnvStatusController> logger)
+    public EFormServiceStatusController(ILogger<EFormServiceStatusController> logger)
     {
         _logger = logger;
     }
 
     [EnableCors("PolicyCors")]
     [HttpGet(Name = "GetEFormServiceEnvStatus")]
-    public EFormServiceEnvStatus Get()
+    public IEnumerable<EFormServiceStatus> Get()
     {
         return EFormServiceData.GetEFormServiceEnvStatuses();
     }
