@@ -4,13 +4,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { EFormServiceStatus } from './eform-service-status';
+import { EFormServiceEnvStatus } from './eform-service-env-status';
 import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EFormServiceStatusService {
+export class EFormServiceEnvStatusService {
 
   private webapiUrl = 'http://localhost:5276/EFormServiceEnvStatus';
 
@@ -23,11 +23,11 @@ export class EFormServiceStatusService {
     private messageService: MessageService ) { }
 
   /** GET EFormServiceStatus from the server */
-  getEFormServiceStatus(): Observable<EFormServiceStatus[]> {
-    return this.http.get<EFormServiceStatus[]>(this.webapiUrl)
+  getEFormServiceEnvStatus(): Observable<EFormServiceEnvStatus> {
+    return this.http.get<EFormServiceEnvStatus>(this.webapiUrl)
       .pipe(
         //tap(_ => this.log('fetched EFormServiceStatus')),
-        catchError(this.handleError<EFormServiceStatus[]>('getEFormServiceStatus', []))
+        catchError(this.handleError<EFormServiceEnvStatus>('getEFormServiceEnvStatus'))
       );
   }
 
@@ -54,6 +54,6 @@ export class EFormServiceStatusService {
 
   /** Log a EFormServiceStatusService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`EFormServiceStatusService: ${message}`);
+    this.messageService.add(`EFormServiceStatusEnvService: ${message}`);
   }
 }

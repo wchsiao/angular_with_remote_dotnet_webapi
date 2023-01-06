@@ -17,7 +17,7 @@ public class EFormServiceEnvStatusController : ControllerBase
 
     [EnableCors("PolicyCors")]
     [HttpGet(Name = "GetEFormServiceEnvStatus")]
-    public IEnumerable<EFormServiceEnvStatus> Get()
+    public EFormServiceEnvStatus Get()
     {
         return EFormServiceData.GetEFormServiceEnvStatuses();
     }

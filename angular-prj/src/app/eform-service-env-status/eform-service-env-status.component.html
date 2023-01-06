@@ -1,0 +1,31 @@
+<h2>EForm Service Env Status</h2>
+<table class="eform-service-env-status-table">
+    <caption class="eform-service-env-status-time-panel">
+        Query Time:
+        {{queryTime | date:'mediumTime'}}
+        <br />
+        Result Time:
+        {{eformServiceEnvStatus.statusDateTime | date:'mediumTime'}}
+    </caption>
+    <thead class="eform-service-env-status-table-head">
+        <tr>
+            <td class="eform-service-env-status-table-head">Server</td>
+            <td class="eform-service-env-status-table-head">Success</td>
+            <td class="eform-service-env-status-table-head">Failed</td>
+        </tr>
+    </thead>
+    <tbody class="eform-service-env-status-table-body">
+        <tr *ngFor="let es of eformServiceEnvStatus.eFormServiceStatusList">
+            <td class="eform-service-env-status-table-servername">{{es.serverName}}</td>
+            <td class="eform-service-env-status-table-count">{{es.success | number:'.0'}}</td>
+            <td class="eform-service-env-status-table-count">{{es.failed | number:'.0'}}</td>
+        </tr>
+    </tbody>
+    <tfoot class="eform-service-env-status-table-foot">
+        <tr>
+            <td class="eform-service-env-status-table-servername">Total</td>
+            <td class="eform-service-env-status-table-count">{{successCount | number:'.0'}}</td>
+            <td class="eform-service-env-status-table-count">{{failedCount | number:'.0'}}</td>
+        </tr>
+    </tfoot>
+</table>

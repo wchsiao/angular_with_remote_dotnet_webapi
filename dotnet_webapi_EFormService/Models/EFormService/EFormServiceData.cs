@@ -25,97 +25,16 @@ public class EFormServiceData
         return new SqlConnection(builder.ConnectionString);
     }
 
-    public static EFormServiceLogDate[] GetEFormServiceLogDate()
+    public static EFormServiceEnvStatus GetEFormServiceEnvStatuses()
     {
-        List<EFormServiceLogDate> ss = new List<EFormServiceLogDate>();
+        var envStatus = new EFormServiceEnvStatus
+        {
+            StatusDateTime = DateTime.Now,
+            EFormServiceStatusList = new List<EFormServiceStatus>()
+        };
 
         try
         {
-            using (SqlConnection connection = GetConnection())
-            {
-                connection.Open();
-
-                String sql =
-                    $"SELECT MIN([MasterLogId]) as [MasterLogId] " +
-                    $", CAST([CreatedDate] as date) as [CreatedDate] " +
-                    $"FROM [Eforms].[dbo].[Eforms_MasterLog] " +
-                    $"where CreatedDate >= CAST(GETDATE() as date) " +
-                    $"group by CAST([CreatedDate] as date) " +
-                    $"order by [CreatedDate] desc";
-
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            ss.Add(new EFormServiceLogDate
-                            {
-                                MasterLogId = reader.GetInt32(0),
-                                CreatedDate = reader.GetDateTime(1)
-                            });
-                        }
-                    }
-                }
-                return ss.ToArray();
-            }
-        }
-        catch (SqlException)
-        {
-            return ss.ToArray();
-        }
-    }
-
-    public static int Get_MasterLogId_Min(DateTime date)
-    {
-        using (SqlConnection connection = GetConnection())
-        {
-            connection.Open();
-
-            String sql =
-                $"SELECT " +
-                $"  MIN([MasterLogId]) as [MasterLogId] " +
-                $"  , CAST([CreatedDate] as date) as [CreatedDate] " +
-                $"FROM " +
-                $"  [Eforms].[dbo].[Eforms_MasterLog] " +
-                $"where " +
-                $"  CreatedDate >= @dateStart " +
-                $"  and " +
-                $"  CreatedDate < @dateEnd ";
-
-            using (SqlCommand command = new SqlCommand(sql, connection))
-            {
-                command.Parameters.AddWithValue("@dateStart", date);
-                command.Parameters.AddWithValue("@dateEnd", date.AddDays(1));
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        var r = new EFormServiceLogDate
-                        {
-                            MasterLogId = reader.GetInt32(0),
-                            CreatedDate = reader.GetDateTime(1)
-                        };
-
-                        return r.MasterLogId;
-                    }
-                }
-            }
-        }
-        return int.MaxValue;
-    }
-
-    public static EFormServiceEnvStatus[] GetEFormServiceEnvStatuses()
-    {
-        var ss = new List<EFormServiceEnvStatus>();
-        try
-        {
-            if (Date != DateTime.Today)
-            {
-                MasterLogId_Min = Get_MasterLogId_Min(Date);
-            }
-
             using (SqlConnection connection = GetConnection())
             {
                 connection.Open();
@@ -128,20 +47,19 @@ public class EFormServiceData
                     $"where " +
                     $"  CreatedDate >= @CreatedDate " +
                     $"  and " +
-                    $"  ServerName in ('eforms01','eforms02','eforms03','eforms04','eforms05','eforms06','eforms07') " +
+                    $"  ServerName in ('eforms01','eforms02','eforms03','eforms04','eforms05','eforms06','eforms07', 'eformsnp01', 'eformsnp02') " +
                     $"group by ServerName " +
                     $"order by ServerName ";
 
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
-                    //command.Parameters.AddWithValue("@masterLogId", MasterLogId_Min);
                     command.Parameters.AddWithValue("@CreatedDate", DateTime.Today);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            ss.Add(new EFormServiceEnvStatus
+                            envStatus.EFormServiceStatusList.Add(new EFormServiceStatus
                             {
                                 ServerName = reader.GetString(0),
                                 Success = reader.GetInt32(1),
@@ -150,12 +68,12 @@ public class EFormServiceData
                         }
                     }
                 }
-                return ss.ToArray();
+                return envStatus;
             }
         }
         catch (SqlException)
         {
-            return ss.ToArray();
+            return envStatus;
         }
     }
 }

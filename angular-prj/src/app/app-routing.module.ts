@@ -6,7 +6,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { WeatherComponent } from './weather/weather.component';
 import { PersonsComponent } from './persons/persons.component';
-import { EFormServiceStatusComponent } from './eform-service-status/eform-service-status.component';
+import { EFormServiceEnvStatusComponent } from './eform-service-env-status/eform-service-env-status.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
   { path: 'weather', component: WeatherComponent },
   { path: 'persons', component: PersonsComponent },
-  { path: 'eformservicestatus', title: 'EFormService Status - Angular with Remote Dotnet WebApi', component: EFormServiceStatusComponent }
+  { path: 'eform-service-env-status', title: 'EFormService Env Status - Angular with Remote Dotnet WebApi', component: EFormServiceEnvStatusComponent }
 ];
 
 @NgModule({

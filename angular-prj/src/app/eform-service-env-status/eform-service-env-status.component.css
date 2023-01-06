@@ -1,0 +1,50 @@
+.eform-service-env-status-time-panel
+{
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.eform-service-env-status-table
+{
+    /*border: 1px solid black;*/
+    border-collapse: collapse;
+}
+
+.eform-service-env-status-table * td
+{
+    padding: 3px 9px;
+}
+
+.eform-service-env-status-table-head * td
+{
+    /*border: 1px solid black;*/
+    border-bottom: 3px solid black;
+    padding-bottom: 0;
+    font-weight: bolder;
+}
+
+.eform-service-env-status-table-body * td
+{
+    /*border: 1px solid black;*/
+    border-bottom: 1px solid gray;
+    font-weight: bold;
+}
+
+.eform-service-env-status-table-foot
+{
+    /*border: 1px solid black;*/
+    border-top: 2pt solid black;
+    font-weight: bold;
+}
+
+.eform-service-env-status-table-servername
+{
+    /*border: 1px solid black;*/
+    text-align: left;
+}
+
+.eform-service-env-status-table-count
+{
+    /*border: 1px solid black;*/
+    text-align: right;
+}
