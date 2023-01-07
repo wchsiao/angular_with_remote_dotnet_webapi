@@ -4,15 +4,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { EFormServiceEnvStatus } from './eform-service-env-status';
+import { EFormServiceRequestTypeStatus } from './eform-service-request-type-status';
 import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EFormServiceEnvStatusService {
+export class EformServiceRequestTypeStatusService {
 
-  private webapiUrl = 'http://localhost:5276/EFormServiceEnvStatus';
+  private webapiUrl = 'http://localhost:5276/EFormServiceRequestTypeStatus';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,11 +23,11 @@ export class EFormServiceEnvStatusService {
     private messageService: MessageService ) { }
 
   /** GET EFormServiceStatus from the server */
-  getEFormServiceEnvStatus(): Observable<EFormServiceEnvStatus> {
-    return this.http.get<EFormServiceEnvStatus>(this.webapiUrl)
+  getEFormServiceRequestTypeStatus(): Observable<EFormServiceRequestTypeStatus[]> {
+    return this.http.get<EFormServiceRequestTypeStatus[]>(this.webapiUrl)
       .pipe(
         //tap(_ => this.log('fetched EFormServiceStatus')),
-        catchError(this.handleError<EFormServiceEnvStatus>('getEFormServiceEnvStatus'))
+        catchError(this.handleError<EFormServiceRequestTypeStatus[]>('getEFormServiceRequestTypeStatus'))
       );
   }
 
@@ -54,6 +54,6 @@ export class EFormServiceEnvStatusService {
 
   /** Log a EFormServiceStatusService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`EFormServiceStatusEnvService: ${message}`);
+    this.messageService.add(`EFormServiceRequestTypeStatusService: ${message}`);
   }
 }

@@ -15,9 +15,11 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
 import { WeatherComponent } from './weather/weather.component';
-import { EFormServiceEnvStatusComponent } from './eform-service-env-status/eform-service-env-status.component';
 import { PersonsComponent } from './persons/persons.component';
 import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
+import { EFormServiceStatusComponent } from './eform-service-status/eform-service-status.component';
+import { EFormServiceRequestTypeStatusComponent } from './eform-service-request-type-status/eform-service-request-type-status.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   imports: [
@@ -31,10 +33,10 @@ import { WeatherForecastComponent } from './weather-forecast/weather-forecast.co
     // Remove it when a real server is ready to receive requests.
     ///*
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, 
-      { 
-        dataEncapsulation: false, 
-        passThruUnknownUrl: true 
+      InMemoryDataService,
+      {
+        dataEncapsulation: false,
+        passThruUnknownUrl: true
       }
     )
     //*/
@@ -47,10 +49,12 @@ import { WeatherForecastComponent } from './weather-forecast/weather-forecast.co
     MessagesComponent,
     HeroSearchComponent,
     WeatherComponent,
-    EFormServiceEnvStatusComponent,
     PersonsComponent,
-    WeatherForecastComponent
+    WeatherForecastComponent,
+    EFormServiceStatusComponent,
+    EFormServiceRequestTypeStatusComponent,
+    PageNotFoundComponent
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent] 
 })
 export class AppModule { }
