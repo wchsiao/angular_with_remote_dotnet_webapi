@@ -3,9 +3,17 @@
     <h2>{{person.fullName | uppercase}} Details</h2>
     <div><span>id: </span>{{person.personId}}</div>
     <div>
-      <label for="person-name">Person name: </label>
-      <input id="person-name" [(ngModel)]="person.fullName" placeholder="Hero name"/>
+        <label for="person-name">Person name: </label>
+        <input id="person-name" [(ngModel)]="person.fullName" placeholder="Name" />
+    </div>
+    <div>
+        <label for="person-name">Email: </label>
+        <input id="person-name" [(ngModel)]="person.emailAddress" placeholder="Email" />
+    </div>
+    <div>
+        <label for="person-name">Phone: </label>
+        <input id="person-name" [(ngModel)]="person.phoneNumber" placeholder="Phone" />
     </div>
     <button type="button" (click)="goBack()">go back</button>
     <button type="button" (click)="save()">save</button>
-  </div>
+</div>
