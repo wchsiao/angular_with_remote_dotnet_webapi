@@ -14,7 +14,6 @@ export class EFormServiceRequestTypeStatusComponent implements OnInit, OnDestroy
   eformServiceRequestTypeStatus: EFormServiceRequestTypeStatus[] = [];
   queryTime: Date = new Date();
   statusDateTime: Date = new Date();
-  serverName: string = "";
   successCount: number = 0;
   failedCount: number = 0;
 
