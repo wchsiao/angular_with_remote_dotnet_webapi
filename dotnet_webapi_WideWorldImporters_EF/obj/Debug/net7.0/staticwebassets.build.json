@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "BLseDChWetwY/JlS6e8wC75Yl4uMxD/yygyoWnLA6KI=",
+  "Source": "dotnet_webapi_WideWorldImporters_EF",
+  "BasePath": "_content/dotnet_webapi_WideWorldImporters_EF",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

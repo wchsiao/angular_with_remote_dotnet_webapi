@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\dotnet_webapi_WideWorldImporters_EF.props" />
+</Project>
