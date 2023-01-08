@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\dotnet_webapi_WideWorldImporters_EF.props" />
-</Project>
