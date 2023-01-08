@@ -26,4 +26,25 @@ public class PersonController : ControllerBase
     {
         return WideWorldImportersData.GetPersons();
     }
+
+    [EnableCors("PolicyCors")]
+    [HttpGet("{id}")]
+    public Person? Get(int id)
+    {
+        return WideWorldImportersData.GetPerson(id);
+    }
+
+    [EnableCors("PolicyCors")]
+    [HttpPut("{id}")]
+    public int Put(int id, Person person)
+    {
+        return WideWorldImportersData.UpdatePerson(id, person);
+    }
+
+    [EnableCors("PolicyCors")]
+    [HttpDelete("{id}")]
+    public int Delete(int id)
+    {
+        return WideWorldImportersData.DeletePerson(id);
+    }
 }

@@ -19,6 +19,11 @@ export class PersonsComponent implements OnInit {
 
   getPersons(): void {
     this.personService.getPersons()
-    .subscribe(persons => this.persons = persons);
+      .subscribe(persons => this.persons = persons);
+  }
+
+  delete(person: Person): void {
+    this.persons = this.persons.filter(p => p !== person);
+    this.personService.deletePerson(person.personId).subscribe();
   }
 }

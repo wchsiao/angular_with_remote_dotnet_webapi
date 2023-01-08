@@ -2,9 +2,10 @@
 
 <ul class="persons">
     <li *ngFor="let person of persons">
-      <a routerLink="/detail/{{person.personId}}">
+      <a routerLink="/person-detail/{{person.personId}}">
         <span class="badge">{{person.personId}}</span> {{person.fullName}}
       </a>
-  
+      <button type="button" class="delete" title="delete person" 
+        (click)="delete(person)">x</button> 
     </li>
   </ul>
