@@ -20,6 +20,7 @@ import { WeatherForecastComponent } from './weather-forecast/weather-forecast.co
 import { EFormServiceStatusComponent } from './eform-service-status/eform-service-status.component';
 import { EFormServiceRequestTypeStatusComponent } from './eform-service-request-type-status/eform-service-request-type-status.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PersonDetailComponent } from './person-detail/person-detail.component';
 
 @NgModule({
   imports: [
@@ -53,7 +54,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     WeatherForecastComponent,
     EFormServiceStatusComponent,
     EFormServiceRequestTypeStatusComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PersonDetailComponent
   ],
   bootstrap: [AppComponent] 
 })

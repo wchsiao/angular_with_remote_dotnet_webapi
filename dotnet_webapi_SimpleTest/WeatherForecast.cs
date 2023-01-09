@@ -1,4 +1,4 @@
-namespace dotnet_webapi_WideWorldImporters;
+namespace dotnet_webapi_SimpleTest;
 
 public class WeatherForecast
 {

@@ -1,0 +1,5 @@
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+
+dotnet ef dbcontext scaffold "Data Source=.\SQLEXPRESS_2016;Initial Catalog=WideWorldImporters;TrustServerCertificate=true;Integrated Security=true" Microsoft.EntityFrameworkCore.SqlServer -o Models

@@ -12,10 +12,12 @@ import { MessageService } from './message.service';
 })
 export class PersonsService {
 
-  private webapiUrl = 'http://localhost:5294/Person';  // URL to web api
+  private webapiUrl = 'http://localhost:5191/Person';  // URL to web api
 
-  httpOptions = {
-    header: new HttpHeaders({ 'Content-Type': 'application/json'})
+  httpOptions: object = {
+    header: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
   };
 
   constructor(
@@ -30,6 +32,32 @@ export class PersonsService {
         tap(_ => this.log('fatched persons')),
         catchError(this.handleError<Person[]>('getPersons', []))
       );
+  }
+
+  getPerson(id: number): Observable<Person> {
+    const url = `${this.webapiUrl}/${id}`;
+    return this.http.get<Person>(url).pipe(
+      tap(_ => this.log(`fetched person id=${id}`)),
+      catchError(this.handleError<Person>(`getPerson id=${id}`))
+    );
+  }
+
+  deletePerson(id: number): Observable<Person> {
+    const url = `${this.webapiUrl}/${id}`;
+
+    return this.http.delete<Person>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted person id=${id}`)),
+      catchError(this.handleError<Person>('deletePerson'))
+    );
+  }
+
+  updatePerson(person: Person): Observable<any> {
+    console.log({ 'func': 'updatePerson', 'p': person });
+    const url = `${this.webapiUrl}/${person.personId}`;
+    return this.http.put(url, person, this.httpOptions).pipe(
+      tap((r) => this.log(`updated person id=${person.personId}. r=${r}`)),
+      catchError(this.handleError<any>('updatePerson'))
+    );
   }
 
   private log(message: string) {

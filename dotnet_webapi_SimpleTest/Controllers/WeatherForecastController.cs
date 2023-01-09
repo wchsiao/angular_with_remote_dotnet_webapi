@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Cors;
 
-namespace dotnet_webapi_WideWorldImporters.Controllers;
+namespace dotnet_webapi_SimpleTest.Controllers;
 
 [ApiController]
 [Route("[controller]")]
@@ -19,7 +18,6 @@ public class WeatherForecastController : ControllerBase
         _logger = logger;
     }
 
-    [EnableCors("PolicyCors")]
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
