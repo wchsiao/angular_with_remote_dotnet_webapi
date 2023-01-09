@@ -16,7 +16,7 @@ public class EFormServiceRequestTypeStatusController : ControllerBase
     }
 
     [EnableCors("PolicyCors")]
-    [HttpGet(Name = "GetEFormServiceStatus/{id}")]
+    [HttpGet(Name = "GetEFormServiceRequestTypeStatus")]
     public IEnumerable<EFormServiceRequestTypeStatus> Get(string id)
     {
         var servername = id;

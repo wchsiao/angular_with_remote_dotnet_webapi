@@ -23,8 +23,8 @@ export class EformServiceRequestTypeStatusService {
     private messageService: MessageService ) { }
 
   /** GET EFormServiceStatus from the server */
-  getEFormServiceRequestTypeStatus(): Observable<EFormServiceRequestTypeStatus[]> {
-    return this.http.get<EFormServiceRequestTypeStatus[]>(this.webapiUrl)
+  getEFormServiceRequestTypeStatus(serverName: string): Observable<EFormServiceRequestTypeStatus[]> {
+    return this.http.get<EFormServiceRequestTypeStatus[]>(this.webapiUrl + `?id=${serverName}`)
       .pipe(
         //tap(_ => this.log('fetched EFormServiceStatus')),
         catchError(this.handleError<EFormServiceRequestTypeStatus[]>('getEFormServiceRequestTypeStatus'))

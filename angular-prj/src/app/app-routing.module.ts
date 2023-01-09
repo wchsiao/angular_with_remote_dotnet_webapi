@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'weather', component: WeatherComponent },
   { path: 'persons', component: PersonsComponent },
   { path: 'eform-service-status', title: 'EFormService Status - Angular with Remote Dotnet WebApi', component: EFormServiceStatusComponent },
-  { path: 'eform-service-request-type-status/:server', title: 'EFormService Request Type Status - Angular with Remote Dotnet WebApi', component: EFormServiceRequestTypeStatusComponent },
+  { path: 'eform-service-request-type-status/:server-name', title: 'EFormService Request Type Status - Angular with Remote Dotnet WebApi', component: EFormServiceRequestTypeStatusComponent },
   { path: 'weather-forecast', title: 'Weather Forecast', component: WeatherForecastComponent },
   { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 ];

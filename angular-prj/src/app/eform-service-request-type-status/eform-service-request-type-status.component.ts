@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
+import { ActivatedRoute, ParamMap } from '@angular/router'
 
 import { EFormServiceRequestTypeStatus } from '../eform-service-request-type-status';
 import { EformServiceRequestTypeStatusService } from '../eform-service-request-type-status.service';
@@ -23,12 +24,18 @@ export class EFormServiceRequestTypeStatusComponent implements OnInit, OnDestroy
     this.getEFormServiceRequestTypeStatus();
   }, 2000);;
 
-  constructor(private eformServiceRequestTypeStatusService: EformServiceRequestTypeStatusService) { 
-  
-    
+  constructor(
+    private route: ActivatedRoute,
+    private eformServiceRequestTypeStatusService: EformServiceRequestTypeStatusService
+  ) {
+
+
   }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.serverName = params.get('server-name') || '';
+    })
     this.getEFormServiceRequestTypeStatus();
 
     //this.refreshInterval();
@@ -44,11 +51,11 @@ export class EFormServiceRequestTypeStatusComponent implements OnInit, OnDestroy
     //this.eformServiceStatusService.getEFormServiceStatus()
     //.subscribe(ess => this.eformServiceStatus = ess);
 
-    this.eformServiceRequestTypeStatusService.getEFormServiceRequestTypeStatus()
+    this.eformServiceRequestTypeStatusService.getEFormServiceRequestTypeStatus(this.serverName)
       .subscribe((ess) => {
         this.eformServiceRequestTypeStatus = ess;
 
-        if(ess && ess.length >=1) {
+        if (ess && ess.length >= 1) {
           this.statusDateTime = ess[0].statusDateTime;
           this.serverName = ess[0].serverName;
         }
